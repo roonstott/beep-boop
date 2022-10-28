@@ -1,32 +1,16 @@
 
 //Business Logic
 
-function isValidInput(inputNumber) {
-  inputNumber = parseFloat(inputNumber);
-  if (!inputNumber || !Number.isInteger(inputNumber)){
-    return false
-  };
-};
-
-function errorMessages(inputNumber) {
-  inputNumber = parseFloat(inputNumber);
-  if (!inputNumber) {
-    return "Please enter a number";
-  } else if (!Number.isInteger(inputNumber)) {
-    return "Please enter a whole number without any decimal places";
-  } else {
-    return "Try again"
-  }
-};
-
 function whatToPrint(inputNumber) {
-  if (!isValidInput (inputNumber)) {
-    return errorMessages(inputNumber)
+  let parsedNumber = parseFloat(inputNumber);
+  if (!parsedNumber) {
+    return "Please enter a number";
+  } else if (!Number.isInteger(parsedNumber)) {
+    return "Please enter a whole number without any decimal places";
   }
   else {
-    let array = numArray(inputNumber);
-    let outputArray = beepBoop(array);
-    return outputArray.join(",  ");
+    let array = numArray(parsedNumber);
+    return beepBoop(array);
   }
 }
 
@@ -38,17 +22,17 @@ function numArray(inputNumber) {
     return array;
 };
 
-function beepBoop(arrayIn) {
-  for (i=0; i<arrayIn.length; i++) {
-    if (arrayIn[i].includes("3")) {
-      arrayIn.splice(i, 1, "Won't you be my neighbor?")
-    } else if (arrayIn[i].includes("2")) {
-      arrayIn.splice(i, 1, "Boop!")
-    } else if (arrayIn[i].includes("1")) {
-      arrayIn.splice(i, 1, "Beep!")
+function beepBoop(array) {
+  for (i=0; i<array.length; i++) {
+    if (array[i].includes("3")) {
+      array.splice(i, 1, "Won't you be my neighbor?")
+    } else if (array[i].includes("2")) {
+      array.splice(i, 1, "Boop!")
+    } else if (array[i].includes("1")) {
+      array.splice(i, 1, "Beep!")
     }
   };
-  return arrayIn.join(",  ");
+  return array.join(",  ");
 };
 
 //User Interface Logic 
@@ -56,14 +40,17 @@ function beepBoop(arrayIn) {
 window.addEventListener("load", function() {
   let form = document.getElementById("form");
   form.addEventListener("submit", handleSubmit);
+  let resetBtn = document.getElementById("refresh");
+  resetBtn.addEventListener("click", function(){
+    window.location.reload();
+  })
 });
 
 function handleSubmit (event) {
   event.preventDefault();
   const inputNumber = document.getElementById("number").value;
-  let array = numArray(inputNumber);
-  let output = beepBoop(array);
+  let output = whatToPrint(inputNumber);
   console.log(output);
   document.getElementById("showResults").innerText = output;
-
+  document.getElementById("hideReset").removeAttribute("class");
 };
