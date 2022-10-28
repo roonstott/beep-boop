@@ -1,17 +1,20 @@
 
 //For testing purposes:
 
-let testNumber = 35;
+let testNumber = 3.14;
 console.log("numArray" , numArray(testNumber));
 
 let array = numArray(testNumber);
-console.log("beepBoop" , beepBoop(array));
+//console.log("beepBoop" , beepBoop(array));
 
 //Business Logic
 
 function numArray(inputNumber) {
   if (!Number(inputNumber)) {
     return "Please enter a number";
+  }
+  else if (!Number.isInteger(inputNumber)) {
+    return "Please enter a whole number without any decimal places";
   }
   else {
     let array = [];

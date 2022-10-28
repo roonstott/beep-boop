@@ -12,11 +12,18 @@ numArray(5);
 Expected Output: 
 ["0", "1", "2", "3", "4", "5"];
 
-Test: "It should return "Please enter a number if anything other than a whole number is entered"
+Test: "It should return "Please enter a number" if anything other than a whole number is entered"
 Code: 
 numArray("gotcha!");
 Expected Output: 
 "Please enter a number";
+
+Test: "It should return "Please enter a whole number without any decimal places" if a non-integer is entered
+Code: 
+numArray(3.14);
+Expected Output: 
+"Please enter a number without any decimal places";
+
 
 
 Describe: beepBoop(array)
