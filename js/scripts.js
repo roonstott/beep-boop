@@ -1,23 +1,41 @@
 
 //Business Logic
 
-functionErrorHandling
+function isValidInput(inputNumber) {
+  inputNumber = parseFloat(inputNumber);
+  if (!inputNumber || !Number.isInteger(inputNumber)){
+    return false
+  };
+};
 
-function numArray(inputNumber) {
+function errorMessages(inputNumber) {
   inputNumber = parseFloat(inputNumber);
   if (!inputNumber) {
     return "Please enter a number";
-  }
-  else if (!Number.isInteger(inputNumber)) {
+  } else if (!Number.isInteger(inputNumber)) {
     return "Please enter a whole number without any decimal places";
+  } else {
+    return "Try again"
+  }
+};
+
+function whatToPrint(inputNumber) {
+  if (!isValidInput (inputNumber)) {
+    return errorMessages(inputNumber)
   }
   else {
+    let array = numArray(inputNumber);
+    let outputArray = beepBoop(array);
+    return outputArray.join(",  ");
+  }
+}
+
+function numArray(inputNumber) {
     let array = [];
     for (i=0; i<=inputNumber; i++) {
     array.push(i.toString());
     };
     return array;
-  };
 };
 
 function beepBoop(arrayIn) {
@@ -49,4 +67,3 @@ function handleSubmit (event) {
   document.getElementById("showResults").innerText = output;
 
 };
-
