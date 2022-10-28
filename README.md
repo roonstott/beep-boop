@@ -13,7 +13,7 @@
 
 ## Description
 
-_Using for-loops, an array, some if-then branching, and a variety of JavaScript methods and API methods, this program receives a user inputted whole number and prints out the series of integers from 0 up to that number. However, the program also modifies some of the printed values, instead of printing the integer. based on several simple rules--if the number contains the digit 1 it prints "beep"; if the number contains the digit 2 it prints "boop"; and if the the number contains the digit 3 it prints out "won't you be my neighbor." If multiple rules are triggered, it uses a hierarchy of priorities to decide which one to apply. 
+_Using for-loops, an array, some if-then branching, and a variety of JavaScript methods and API methods, this program receives a user inputted whole number and prints out the series of integers from 0 up to that number. However, the program also modifies some of the printed values, instead of printing the integer. based on several simple rules--if the number contains the digit 1 it prints "beep"; if the number contains the digit 2 it prints "boop"; and if the the number contains the digit 3 it prints out "won't you be my neighbor." If multiple rules are triggered, it uses a hierarchy of priorities to decide which one to apply._
 
 ## Setup/Installation Requirements
 
