@@ -12,13 +12,13 @@ function whatToPrint(inputNumber) {
     let array = numArray(parsedNumber);
     return beepBoop(array);
   }
-}
+};
 
 function numArray(inputNumber) {
     let array = [];
     for (i=0; i<=inputNumber; i++) {
     array.push(i.toString());
-    };
+    }
     return array;
 };
 
@@ -31,7 +31,7 @@ function beepBoop(array) {
     } else if (array[i].includes("1")) {
       array.splice(i, 1, "Beep!")
     }
-  };
+  }
   return array.join(",  ");
 };
 
@@ -50,7 +50,6 @@ function handleSubmit (event) {
   event.preventDefault();
   const inputNumber = document.getElementById("number").value;
   let output = whatToPrint(inputNumber);
-  console.log(output);
   document.getElementById("showResults").innerText = output;
   document.getElementById("hideReset").removeAttribute("class");
 };
