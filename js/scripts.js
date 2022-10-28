@@ -1,13 +1,7 @@
 
-//For testing purposes:
-
-let testNumber = "5.23"
-console.log("numArray" , numArray(testNumber));
-
-let array = numArray(testNumber);
-//console.log("beepBoop" , beepBoop(array));
-
 //Business Logic
+
+functionErrorHandling
 
 function numArray(inputNumber) {
   inputNumber = parseFloat(inputNumber);
@@ -26,16 +20,33 @@ function numArray(inputNumber) {
   };
 };
 
-function beepBoop(array) {
-  for (i=0; i<array.length; i++) {
-    if (array[i].includes("3")) {
-      array.splice(i, 1, "Won't you be my neighbor?")
-    } else if (array[i].includes("2")) {
-      array.splice(i, 1, "Boop!")
-    } else if (array[i].includes("1")) {
-      array.splice(i, 1, "Beep!")
+function beepBoop(arrayIn) {
+  for (i=0; i<arrayIn.length; i++) {
+    if (arrayIn[i].includes("3")) {
+      arrayIn.splice(i, 1, "Won't you be my neighbor?")
+    } else if (arrayIn[i].includes("2")) {
+      arrayIn.splice(i, 1, "Boop!")
+    } else if (arrayIn[i].includes("1")) {
+      arrayIn.splice(i, 1, "Beep!")
     }
   };
-  return array;
+  return arrayIn.join(",  ");
+};
+
+//User Interface Logic 
+
+window.addEventListener("load", function() {
+  let form = document.getElementById("form");
+  form.addEventListener("submit", handleSubmit);
+});
+
+function handleSubmit (event) {
+  event.preventDefault();
+  const inputNumber = document.getElementById("number").value;
+  let array = numArray(inputNumber);
+  let output = beepBoop(array);
+  console.log(output);
+  document.getElementById("showResults").innerText = output;
+
 };
 
