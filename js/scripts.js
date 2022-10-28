@@ -1,7 +1,7 @@
 
 //For testing purposes:
 
-let testNumber = 3.14;
+let testNumber = "5.23"
 console.log("numArray" , numArray(testNumber));
 
 let array = numArray(testNumber);
@@ -10,7 +10,8 @@ let array = numArray(testNumber);
 //Business Logic
 
 function numArray(inputNumber) {
-  if (!Number(inputNumber)) {
+  inputNumber = parseFloat(inputNumber);
+  if (!inputNumber) {
     return "Please enter a number";
   }
   else if (!Number.isInteger(inputNumber)) {
@@ -24,8 +25,6 @@ function numArray(inputNumber) {
     return array;
   };
 };
-
-
 
 function beepBoop(array) {
   for (i=0; i<array.length; i++) {

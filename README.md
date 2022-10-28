@@ -24,6 +24,19 @@ numArray(3.14);
 Expected Output: 
 "Please enter a number without any decimal places";
 
+Test: "It should take a string input, as if passed from a form, and return the appropriate results"
+Code: 
+numArray("3.14");
+Expected Output: 
+"Please enter a whole number without any decimal places";
+Code: 
+numArray("5");
+["0", "1", "2", "3", "4", "5"];
+Code: 
+numArray("gotcha");
+Please enter a number
+
+
 
 
 Describe: beepBoop(array)
