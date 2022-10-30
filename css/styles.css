@@ -5,3 +5,11 @@ p {
 .hidden {
   display: none;
 }
+
+#form {
+  margin-bottom: 5%;
+}
+
+#refresh { 
+  margin-bottom: 3%;
+}

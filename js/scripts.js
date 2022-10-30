@@ -10,7 +10,7 @@ function whatToPrint(inputNumber) {
   }
   else {
     let array = numArray(parsedNumber);
-    return beepBoop(array);
+    return beepBoop(array).join(", ");
   }
 };
 
@@ -32,8 +32,19 @@ function beepBoop(array) {
       array.splice(i, 1, "Beep!")
     }
   }
-  return array.join(",  ");
+  return array;
 };
+
+function flash (array, printLocation) {
+  let i = 0;
+  setInterval(printIt, 250, array, printLocation);
+  function printIt(array, printLocation) {
+    if (array[i]) {
+    printLocation.innerText = array[i];
+    }
+    i += 1;
+  }
+}
 
 //User Interface Logic 
 
@@ -52,4 +63,7 @@ function handleSubmit (event) {
   let output = whatToPrint(inputNumber);
   document.getElementById("showResults").innerText = output;
   document.getElementById("hideReset").removeAttribute("class");
+  let flashField = document.getElementById("bigShow");
+  let flashArray = beepBoop(numArray(inputNumber));
+  flash(flashArray, flashField);
 };
